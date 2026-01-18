@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Library Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Library Manager</h1>
+      <div id="form">
+        <input id="id" placeholder="ID" />
+        <input id="title" placeholder="Title" />
+        <input id="author" placeholder="Author" />
+        <input id="year" placeholder="Year" type="number" />
+        <button id="create">Create / Update</button>
+        <button id="clear">Clear</button>
+      </div>
+
+      <h2>Books</h2>
+      <table id="books">
+        <thead>
+          <tr><th>ID</th><th>Title</th><th>Author</th><th>Year</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
