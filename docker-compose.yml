@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: go-cicd-lab:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_PATH=/data/data.db
+    volumes:
+      - dbdata:/data
+    restart: unless-stopped
+
+  sqlite:
+    image: nouchka/sqlite3:latest
+    # This service is a helper shell with sqlite3 CLI to inspect the DB file.
+    # You don't need to keep it running; use `docker compose run --rm sqlite ...` to run commands.
+    volumes:
+      - dbdata:/data
+    entrypoint: ["/bin/sh", "-c", "sleep 1d"]
+
+volumes:
+  dbdata:
+    driver: local
