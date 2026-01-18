@@ -5,8 +5,16 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"sync"
 	"testing"
 )
+
+var store = struct {
+	sync.Mutex
+	m map[string]Book
+}{
+	m: make(map[string]Book),
+}
 
 func TestListAndCreate(t *testing.T) {
 	// simple integration test against mux
