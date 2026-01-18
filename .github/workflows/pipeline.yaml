@@ -48,5 +48,5 @@ jobs:
         with:
           context: .
           push: true
-          # Replace 'latest' with ${{ github.sha }} if you want unique versions per commit
+
           tags: ${{ secrets.DOCKER_USERNAME }}/go-cicd-lab:latest
