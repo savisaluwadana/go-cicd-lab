@@ -1,11 +1,13 @@
 package main
 
 import (
+	"database/sql"
 	"encoding/json"
 	"log"
 	"net/http"
 	"os"
-	"sync"
+
+	_ "modernc.org/sqlite"
 )
 
 // Book represents a library book
@@ -16,19 +18,38 @@ type Book struct {
 	Year   int    `json:"year"`
 }
 
-// in-memory store (safe for concurrent access)
-var (
-	store = struct {
-		sync.RWMutex
-		m map[string]Book
-	}{m: make(map[string]Book)}
-)
+var db *sql.DB
+
+func initDB(path string) error {
+	var err error
+	db, err = sql.Open("sqlite", path)
+	if err != nil {
+		return err
+	}
+	_, err = db.Exec(`
+	CREATE TABLE IF NOT EXISTS books (
+		id TEXT PRIMARY KEY,
+		title TEXT,
+		author TEXT,
+		year INTEGER
+	);`)
+	return err
+}
 
 func listBooks(w http.ResponseWriter, r *http.Request) {
-	store.RLock()
-	defer store.RUnlock()
-	books := make([]Book, 0, len(store.m))
-	for _, b := range store.m {
+	rows, err := db.Query("SELECT id,title,author,year FROM books")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+	var books []Book
+	for rows.Next() {
+		var b Book
+		if err := rows.Scan(&b.ID, &b.Title, &b.Author, &b.Year); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		books = append(books, b)
 	}
 	jsonResponse(w, books, http.StatusOK)
@@ -40,11 +61,14 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "missing id", http.StatusBadRequest)
 		return
 	}
-	store.RLock()
-	b, ok := store.m[id]
-	store.RUnlock()
-	if !ok {
+	var b Book
+	err := db.QueryRow("SELECT id,title,author,year FROM books WHERE id = ?", id).Scan(&b.ID, &b.Title, &b.Author, &b.Year)
+	if err == sql.ErrNoRows {
 		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	jsonResponse(w, b, http.StatusOK)
@@ -60,9 +84,11 @@ func createBook(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "id required", http.StatusBadRequest)
 		return
 	}
-	store.Lock()
-	store.m[b.ID] = b
-	store.Unlock()
+	_, err := db.Exec("INSERT INTO books(id,title,author,year) VALUES(?,?,?,?)", b.ID, b.Title, b.Author, b.Year)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	jsonResponse(w, b, http.StatusCreated)
 }
 
@@ -76,15 +102,16 @@ func updateBook(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "id required", http.StatusBadRequest)
 		return
 	}
-	store.Lock()
-	_, exists := store.m[b.ID]
-	if !exists {
-		store.Unlock()
+	res, err := db.Exec("UPDATE books SET title=?,author=?,year=? WHERE id=?", b.Title, b.Author, b.Year, b.ID)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	n, _ := res.RowsAffected()
+	if n == 0 {
 		http.Error(w, "not found", http.StatusNotFound)
 		return
 	}
-	store.m[b.ID] = b
-	store.Unlock()
 	jsonResponse(w, b, http.StatusOK)
 }
 
@@ -94,13 +121,16 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "missing id", http.StatusBadRequest)
 		return
 	}
-	store.Lock()
-	defer store.Unlock()
-	if _, ok := store.m[id]; !ok {
+	res, err := db.Exec("DELETE FROM books WHERE id = ?", id)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	n, _ := res.RowsAffected()
+	if n == 0 {
 		http.Error(w, "not found", http.StatusNotFound)
 		return
 	}
-	delete(store.m, id)
 	w.WriteHeader(http.StatusNoContent)
 }
 
@@ -111,11 +141,21 @@ func jsonResponse(w http.ResponseWriter, v interface{}, status int) {
 }
 
 func main() {
-	// seed a couple books
-	store.Lock()
-	store.m["1"] = Book{ID: "1", Title: "The Go Programming Language", Author: "Alan A. A. Donovan", Year: 2015}
-	store.m["2"] = Book{ID: "2", Title: "Clean Code", Author: "Robert C. Martin", Year: 2008}
-	store.Unlock()
+	dbPath := os.Getenv("DB_PATH")
+	if dbPath == "" {
+		dbPath = "data.db"
+	}
+	if err := initDB(dbPath); err != nil {
+		log.Fatalf("db init: %v", err)
+	}
+
+	// seed data if empty
+	var count int
+	_ = db.QueryRow("SELECT COUNT(1) FROM books").Scan(&count)
+	if count == 0 {
+		_, _ = db.Exec("INSERT INTO books(id,title,author,year) VALUES(?,?,?,?)", "1", "The Go Programming Language", "Alan A. A. Donovan", 2015)
+		_, _ = db.Exec("INSERT INTO books(id,title,author,year) VALUES(?,?,?,?)", "2", "Clean Code", "Robert C. Martin", 2008)
+	}
 
 	mux := http.NewServeMux()
 	// API
@@ -150,6 +190,6 @@ func main() {
 	if p := os.Getenv("PORT"); p != "" {
 		addr = ":" + p
 	}
-	log.Printf("listening on %s", addr)
+	log.Printf("listening on %s (DB=%s)", addr, dbPath)
 	log.Fatal(http.ListenAndServe(addr, mux))
 }
