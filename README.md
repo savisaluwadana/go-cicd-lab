@@ -2,7 +2,7 @@
 
 ![CI Status](https://github.com/savisaluwadana/go-cicd-lab/workflows/CI%20Pipeline/badge.svg)
 
-A comprehensive learning platform combining a practical Library Manager application with **15 real-world CI/CD projects** covering GitHub Actions, Jenkins, GitLab CI, Terraform, ArgoCD, and Crossplane.
+A comprehensive learning platform combining a practical Library Manager application with **20 real-world CI/CD projects** covering GitHub Actions, Jenkins, GitLab CI, Terraform, ArgoCD, Crossplane, Service Mesh, MLOps, Zero-Trust Security, and Platform Engineering.
 
 ---
 
@@ -16,7 +16,7 @@ A full-stack CRUD application demonstrating:
 - **CI/CD:** GitHub Actions pipeline
 - **Tests:** Unit and integration tests
 
-### 🚀 15 CI/CD Projects
+### 🚀 20 CI/CD Projects
 
 Explore comprehensive, production-ready CI/CD implementations:
 
@@ -41,6 +41,13 @@ Explore comprehensive, production-ready CI/CD implementations:
 13. **[Terraform Infrastructure Pipeline](./projects/13-terraform-infrastructure-pipeline/)** - IaC, drift detection, cost estimation
 14. **[ArgoCD GitOps Deployment](./projects/14-argocd-gitops-deployment/)** - Progressive delivery, canary/blue-green
 15. **[Crossplane Infrastructure](./projects/15-crossplane-infrastructure/)** - Kubernetes-native cloud resources
+
+#### Enterprise Architecture (Projects 16-20)
+16. **[Service Mesh Deployment](./projects/16-service-mesh-deployment/)** - Istio/Linkerd, mTLS, observability
+17. **[Multi-Cloud Disaster Recovery](./projects/17-multi-cloud-disaster-recovery/)** - AWS+GCP+Azure, automated failover
+18. **[MLOps with Kubeflow](./projects/18-mlops-kubeflow-mlflow/)** - ML pipelines, model serving, A/B testing
+19. **[Zero-Trust Security](./projects/19-zero-trust-security-opa-falco/)** - OPA, Falco, Vault
+20. **[Platform Engineering IDP](./projects/20-platform-engineering-idp/)** - Backstage portal, self-service
 
 #### Advanced (Project 10)
 10. **[Hybrid CI/CD Platform](./projects/PROJECTS-5-10-SUMMARY.md#project-10)** - Multi-platform orchestration with Kubernetes
@@ -134,6 +141,7 @@ curl http://localhost:8080/api/books
 - **Kubernetes** - Container orchestration
 - **Docker** - Containerization
 - **Cloud Platforms** - AWS, GCP, Azure
+- **Service Mesh** - Istio, Linkerd
 
 ### Additional Tools
 - ArgoCD & Argo Rollouts (Progressive delivery)
@@ -141,6 +149,10 @@ curl http://localhost:8080/api/books
 - Kustomize (Configuration management)
 - Prometheus/Grafana (Monitoring)
 - Trivy, Checkov, Snyk (Security scanning)
+- Kubeflow, MLflow, Seldon Core (MLOps)
+- OPA Gatekeeper, Falco (Security & Policy)
+- HashiCorp Vault (Secrets management)
+- Backstage (Developer portal)
 ## 📚 Learning Path
 
 ### Beginner (Week 1-2)
@@ -161,17 +173,20 @@ curl http://localhost:8080/api/books
 11. Complete Project 12: Jenkins Shared Libraries
 12. Implement GitOps with ArgoCD
 
-### Expert (Week 7-8)
+### Expert (Week 7-9)
 13. Complete Project 13: Terraform Infrastructure Pipeline
 14. Complete Project 14: ArgoCD Progressive Delivery
 15. Complete Project 15: Crossplane Infrastructure
-16. Complete Project 10: Hybrid CI/CD Platform
-17. Add comprehensive monitoring and observability
-### Advanced (Week 5-8)
-9. Complete Projects 6-9: Advanced deployments & security
-10. Complete Project 10: Hybrid CI/CD Platform
-11. Implement GitOps with ArgoCD
-12. Add monitoring and observability
+16. Master infrastructure automation
+
+### Architect (Week 10-12)
+17. Complete Project 16: Service Mesh Deployment
+18. Complete Project 17: Multi-Cloud Disaster Recovery
+19. Complete Project 18: MLOps Pipeline
+20. Complete Project 19: Zero-Trust Security
+21. Complete Project 20: Platform Engineering IDP
+22. Complete Project 10: Hybrid CI/CD Platform
+23. Add comprehensive monitoring and observability
 
 ---
 
@@ -202,6 +217,7 @@ Contributions welcome! Please:
 - [Kubernetes Commands Cheatsheet](./kubernetescommands.md)
 - [Projects Overview](./projects/README.md)
 - [Projects 5-10 Summary](./projects/PROJECTS-5-10-SUMMARY.md)
+- [Projects 11-15 Summary](./projects/PROJECTS-11-15-SUMMARY.md)
 
 ---
 

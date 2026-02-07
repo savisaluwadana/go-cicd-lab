@@ -1,6 +1,6 @@
-# 15 Advanced CI/CD Projects: Complete DevOps Learning Platform
+# 20 Advanced CI/CD Projects: Enterprise DevOps & Platform Engineering
 
-This directory contains **15 comprehensive CI/CD projects** demonstrating real-world pipelines, infrastructure automation, and modern DevOps practices. Each project includes complete code, configuration files, and detailed explanations.
+This directory contains **20 comprehensive CI/CD projects** demonstrating real-world pipelines, infrastructure automation, service mesh, ML operations, zero-trust security, and platform engineering. Each project includes complete code, configuration files, and detailed explanations.
 
 ---
 
@@ -32,6 +32,14 @@ This directory contains **15 comprehensive CI/CD projects** demonstrating real-w
 14. **[ArgoCD GitOps Deployment](./14-argocd-gitops-deployment/)** - Progressive delivery, canary/blue-green rollouts
 15. **[Crossplane Infrastructure](./15-crossplane-infrastructure/)** - Kubernetes-native cloud resource management
 
+### Enterprise Architecture Projects (16-20)
+
+16. **[Service Mesh Deployment](./16-service-mesh-deployment/)** - Istio/Linkerd, mTLS, traffic management, observability
+17. **[Multi-Cloud Disaster Recovery](./17-multi-cloud-disaster-recovery/)** - AWS+GCP+Azure, automated failover, RTO/RPO compliance
+18. **[MLOps with Kubeflow](./18-mlops-kubeflow-mlflow/)** - ML pipelines, model serving, A/B testing, drift detection
+19. **[Zero-Trust Security](./19-zero-trust-security-opa-falco/)** - OPA policies, Falco runtime security, Vault secrets
+20. **[Platform Engineering IDP](./20-platform-engineering-idp/)** - Backstage portal, self-service, golden paths, SLOs
+
 ### Advanced Multi-Platform Project (10)
 
 10. **[Hybrid CI/CD Platform](./10-advanced-hybrid/)** - Jenkins + GitLab + GitHub Actions with Kubernetes
@@ -43,8 +51,9 @@ This directory contains **15 comprehensive CI/CD projects** demonstrating real-w
 **Beginners (Weeks 1-2):** Start with Projects 1-3 (GitHub Actions basics)  
 **Intermediate (Weeks 3-4):** Move to Projects 4-6 (Jenkins) and 7-9 (GitLab)  
 **Advanced (Weeks 5-6):** Complete Projects 11-12 (Monorepo, Shared Libraries)  
-**Expert (Weeks 7-8):** Master Projects 13-15 (Infrastructure, GitOps)  
-**Mastery:** Complete Project 10 (Hybrid Platform)
+**Expert (Weeks 7-9):** Master Projects 13-15 (Infrastructure, GitOps)  
+**Architect (Weeks 10-12):** Complete Projects 16-20 (Service Mesh, DR, MLOps, Security, Platform Engineering)  
+**Mastery:** Complete Project 10 (Hybrid Platform) - Combines multiple concepts
 
 ---
 
@@ -77,13 +86,17 @@ Navigate to any project directory and follow its README.
 - **CI/CD:** GitHub Actions, Jenkins, GitLab CI
 - **Containers:** Docker, Docker Compose
 - **Orchestration:** Kubernetes, Helm, ArgoCD, Argo Rollouts
-- **Cloud:** AWS, GCP, Azure
-- **Infrastructure as Code:** Terraform, Crossplane
+- **Service Mesh:** Istio, Linkerd, Envoy
+- **Cloud:** AWS, GCP, Azure (Multi-cloud)
+- **Infrastructure as Code:** Terraform, Crossplane, Pulumi
 - **GitOps:** ArgoCD, Flux
-- **Security:** SAST, DAST, secret scanning, Trivy, Checkov, Snyk
-- **Languages:** Go, Node.js, Python, Java
-- **Tools:** Kustomize, Infracost, TFLint, Prometheus
-- **Monitoring:** Prometheus, Grafana, Loki
+- **Security:** OPA, Falco, Vault, Trivy, Checkov, Snyk, SAST, DAST
+- **MLOps:** Kubeflow, MLflow, Seldon Core
+- **Platform Engineering:** Backstage, vCluster
+- **Languages:** Go, Node.js, Python, Java, Groovy
+- **Tools:** Kustomize, Infracost, TFLint, Prometheus, Jaeger, Kiali
+- **Monitoring:** Prometheus, Grafana, Loki, Jaeger, Kiali
+- **Compliance:** DORA metrics, SLOs, Policy-as-Code
 
 ---
 
