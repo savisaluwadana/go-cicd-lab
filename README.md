@@ -2,7 +2,7 @@
 
 ![CI Status](https://github.com/savisaluwadana/go-cicd-lab/workflows/CI%20Pipeline/badge.svg)
 
-A comprehensive learning platform combining a practical Library Manager application with **10 real-world CI/CD projects** covering GitHub Actions, Jenkins, and GitLab CI.
+A comprehensive learning platform combining a practical Library Manager application with **15 real-world CI/CD projects** covering GitHub Actions, Jenkins, GitLab CI, Terraform, ArgoCD, and Crossplane.
 
 ---
 
@@ -16,27 +16,34 @@ A full-stack CRUD application demonstrating:
 - **CI/CD:** GitHub Actions pipeline
 - **Tests:** Unit and integration tests
 
-### 🚀 10 CI/CD Projects
+### 🚀 15 CI/CD Projects
 
 Explore comprehensive, production-ready CI/CD implementations:
 
-#### GitHub Actions (Projects 1-3)
+#### GitHub Actions (Projects 1-3, 11)
 1. **[Basic CI Pipeline](./projects/01-github-actions-basic/)** - Testing, linting, building
 2. **[Docker Build & Push](./projects/02-github-actions-docker/)** - Multi-arch images, caching
 3. **[Multi-Environment Deployment](./projects/03-github-actions-environments/)** - Dev/Staging/Prod with approvals
+11. **[Monorepo CI/CD](./projects/11-github-actions-monorepo/)** - Selective builds, change detection
 
-#### Jenkins (Projects 4-6)
+#### Jenkins (Projects 4-6, 12)
 4. **[Declarative Pipeline](./projects/04-jenkins-declarative/)** - Complete pipeline with stages
-5. **[Multibranch Pipeline](./projects/05-jenkins-multibranch/)** - Branch-based builds
-6. **[Blue-Green Deployment](./projects/06-jenkins-blue-green/)** - Zero-downtime deployments
+5. **[Multibranch Pipeline](./projects/PROJECTS-5-10-SUMMARY.md#project-5)** - Branch-based builds
+6. **[Blue-Green Deployment](./projects/PROJECTS-5-10-SUMMARY.md#project-6)** - Zero-downtime deployments
+12. **[Shared Pipeline Library](./projects/12-jenkins-pipeline-library/)** - Reusable Groovy components
 
 #### GitLab CI (Projects 7-9)
-7. **[GitLab Auto DevOps](./projects/07-gitlab-auto-devops/)** - Automated testing & deployment
-8. **[Kubernetes Deployment](./projects/08-gitlab-kubernetes/)** - Deploy to K8s clusters
-9. **[Security Scanning](./projects/09-gitlab-security/)** - SAST, DAST, container scanning
+7. **[GitLab Auto DevOps](./projects/PROJECTS-5-10-SUMMARY.md#project-7)** - Automated testing & deployment
+8. **[Kubernetes Deployment](./projects/PROJECTS-5-10-SUMMARY.md#project-8)** - Deploy to K8s clusters
+9. **[Security Scanning](./projects/PROJECTS-5-10-SUMMARY.md#project-9)** - SAST, DAST, container scanning
+
+#### Infrastructure & GitOps (Projects 13-15)
+13. **[Terraform Infrastructure Pipeline](./projects/13-terraform-infrastructure-pipeline/)** - IaC, drift detection, cost estimation
+14. **[ArgoCD GitOps Deployment](./projects/14-argocd-gitops-deployment/)** - Progressive delivery, canary/blue-green
+15. **[Crossplane Infrastructure](./projects/15-crossplane-infrastructure/)** - Kubernetes-native cloud resources
 
 #### Advanced (Project 10)
-10. **[Hybrid CI/CD Platform](./projects/10-advanced-hybrid/)** - Multi-platform orchestration with Kubernetes
+10. **[Hybrid CI/CD Platform](./projects/PROJECTS-5-10-SUMMARY.md#project-10)** - Multi-platform orchestration with Kubernetes
 
 📖 **[View All Projects →](./projects/README.md)**
 
@@ -116,9 +123,12 @@ curl http://localhost:8080/api/books
 - **Containerization:** Docker, Docker Compose
 
 ### CI/CD Platforms Covered
-- **GitHub Actions** - Cloud-native CI/CD
-- **Jenkins** - Self-hosted automation server
+- **GitHub Actions** - Cloud-native CI/CD, monorepo support
+- **Jenkins** - Self-hosted automation server, shared libraries
 - **GitLab CI** - Integrated DevOps platform
+- **ArgoCD** - GitOps continuous delivery
+- **Terraform** - Infrastructure as Code
+- **Crossplane** - Kubernetes-native infrastructure
 
 ### Deployment Targets
 - **Kubernetes** - Container orchestration
@@ -126,14 +136,11 @@ curl http://localhost:8080/api/books
 - **Cloud Platforms** - AWS, GCP, Azure
 
 ### Additional Tools
-- ArgoCD (GitOps)
+- ArgoCD & Argo Rollouts (Progressive delivery)
 - Helm (Package management)
+- Kustomize (Configuration management)
 - Prometheus/Grafana (Monitoring)
-- Trivy (Security scanning)
-- Terraform (Infrastructure as Code)
-
----
-
+- Trivy, Checkov, Snyk (Security scanning)
 ## 📚 Learning Path
 
 ### Beginner (Week 1-2)
@@ -148,6 +155,18 @@ curl http://localhost:8080/api/books
 7. Complete Projects 4-5: Jenkins Pipelines
 8. Learn Kubernetes basics
 
+### Advanced (Week 5-6)
+9. Complete Projects 6-9: Advanced deployments & security
+10. Complete Project 11: Monorepo CI/CD
+11. Complete Project 12: Jenkins Shared Libraries
+12. Implement GitOps with ArgoCD
+
+### Expert (Week 7-8)
+13. Complete Project 13: Terraform Infrastructure Pipeline
+14. Complete Project 14: ArgoCD Progressive Delivery
+15. Complete Project 15: Crossplane Infrastructure
+16. Complete Project 10: Hybrid CI/CD Platform
+17. Add comprehensive monitoring and observability
 ### Advanced (Week 5-8)
 9. Complete Projects 6-9: Advanced deployments & security
 10. Complete Project 10: Hybrid CI/CD Platform
