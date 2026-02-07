@@ -1,6 +1,6 @@
-# 20 Advanced CI/CD Projects: Enterprise DevOps & Platform Engineering
+# 25 Advanced CI/CD Projects: Enterprise DevOps, Platform Engineering & Cloud-Native
 
-This directory contains **20 comprehensive CI/CD projects** demonstrating real-world pipelines, infrastructure automation, service mesh, ML operations, zero-trust security, and platform engineering. Each project includes complete code, configuration files, and detailed explanations.
+This directory contains **25 comprehensive CI/CD projects** demonstrating real-world pipelines, infrastructure automation, service mesh, ML operations, zero-trust security, platform engineering, chaos engineering, and cloud-native architectures. Each project includes complete code, configuration files, and detailed explanations.
 
 ---
 
@@ -44,6 +44,14 @@ This directory contains **20 comprehensive CI/CD projects** demonstrating real-w
 
 10. **[Hybrid CI/CD Platform](./10-advanced-hybrid/)** - Jenkins + GitLab + GitHub Actions with Kubernetes
 
+### Advanced Platform Engineering & Cloud-Native (21-25)
+
+21. **[Chaos Engineering with Litmus & Chaos Mesh](./21-chaos-engineering-litmus/)** - Proactive resilience testing, fault injection, GameDays
+22. **[GitOps with Flux CD](./22-gitops-flux-cd/)** - Multi-tenant GitOps, progressive delivery, image automation
+23. **[Cloud-Native CI/CD with Tekton](./23-tekton-pipelines/)** - Kubernetes-native pipelines, reusable tasks, parallel execution
+24. **[FinOps & Cost Optimization](./24-finops-kubecost/)** - Kubecost, budget alerts, rightsizing, multi-cloud cost management
+25. **[Event-Driven Architecture](./25-event-driven-knative-keda/)** - Knative serverless, KEDA autoscaling, event-driven workloads
+
 ---
 
 ## 🎯 Learning Path
@@ -53,6 +61,7 @@ This directory contains **20 comprehensive CI/CD projects** demonstrating real-w
 **Advanced (Weeks 5-6):** Complete Projects 11-12 (Monorepo, Shared Libraries)  
 **Expert (Weeks 7-9):** Master Projects 13-15 (Infrastructure, GitOps)  
 **Architect (Weeks 10-12):** Complete Projects 16-20 (Service Mesh, DR, MLOps, Security, Platform Engineering)  
+**Master (Weeks 13-15):** Complete Projects 21-25 (Chaos Engineering, Flux GitOps, Tekton, FinOps, Event-Driven)  
 **Mastery:** Complete Project 10 (Hybrid Platform) - Combines multiple concepts
 
 ---
@@ -83,16 +92,19 @@ Navigate to any project directory and follow its README.
 
 ## 🛠 Technologies Covered
 
-- **CI/CD:** GitHub Actions, Jenkins, GitLab CI
+- **CI/CD:** GitHub Actions, Jenkins, GitLab CI, Tekton Pipelines
 - **Containers:** Docker, Docker Compose
 - **Orchestration:** Kubernetes, Helm, ArgoCD, Argo Rollouts
 - **Service Mesh:** Istio, Linkerd, Envoy
 - **Cloud:** AWS, GCP, Azure (Multi-cloud)
 - **Infrastructure as Code:** Terraform, Crossplane, Pulumi
-- **GitOps:** ArgoCD, Flux
+- **GitOps:** ArgoCD, Flux CD, Flagger
 - **Security:** OPA, Falco, Vault, Trivy, Checkov, Snyk, SAST, DAST
 - **MLOps:** Kubeflow, MLflow, Seldon Core
 - **Platform Engineering:** Backstage, vCluster
+- **Chaos Engineering:** Litmus Chaos, Chaos Mesh
+- **FinOps:** Kubecost, Cloud Cost Optimization
+- **Serverless & Event-Driven:** Knative, KEDA
 - **Languages:** Go, Node.js, Python, Java, Groovy
 - **Tools:** Kustomize, Infracost, TFLint, Prometheus, Jaeger, Kiali
 - **Monitoring:** Prometheus, Grafana, Loki, Jaeger, Kiali

@@ -2,7 +2,7 @@
 
 ![CI Status](https://github.com/savisaluwadana/go-cicd-lab/workflows/CI%20Pipeline/badge.svg)
 
-A comprehensive learning platform combining a practical Library Manager application with **20 real-world CI/CD projects** covering GitHub Actions, Jenkins, GitLab CI, Terraform, ArgoCD, Crossplane, Service Mesh, MLOps, Zero-Trust Security, and Platform Engineering.
+A comprehensive learning platform combining a practical Library Manager application with **25 real-world CI/CD projects** covering GitHub Actions, Jenkins, GitLab CI, Terraform, ArgoCD, Crossplane, Service Mesh, MLOps, Zero-Trust Security, Platform Engineering, Chaos Engineering, GitOps, Tekton, FinOps, and Event-Driven Architectures.
 
 ---
 
@@ -16,7 +16,7 @@ A full-stack CRUD application demonstrating:
 - **CI/CD:** GitHub Actions pipeline
 - **Tests:** Unit and integration tests
 
-### 🚀 20 CI/CD Projects
+### 🚀 25 CI/CD Projects
 
 Explore comprehensive, production-ready CI/CD implementations:
 
@@ -48,6 +48,13 @@ Explore comprehensive, production-ready CI/CD implementations:
 18. **[MLOps with Kubeflow](./projects/18-mlops-kubeflow-mlflow/)** - ML pipelines, model serving, A/B testing
 19. **[Zero-Trust Security](./projects/19-zero-trust-security-opa-falco/)** - OPA, Falco, Vault
 20. **[Platform Engineering IDP](./projects/20-platform-engineering-idp/)** - Backstage portal, self-service
+
+#### Advanced Platform Engineering & Cloud-Native (Projects 21-25)
+21. **[Chaos Engineering](./projects/21-chaos-engineering-litmus/)** - Litmus, Chaos Mesh, fault injection
+22. **[GitOps with Flux CD](./projects/22-gitops-flux-cd/)** - Multi-tenant, progressive delivery
+23. **[Tekton Pipelines](./projects/23-tekton-pipelines/)** - Cloud-native CI/CD, reusable tasks
+24. **[FinOps & Cost Optimization](./projects/24-finops-kubecost/)** - Kubecost, budget alerts, rightsizing
+25. **[Event-Driven Architecture](./projects/25-event-driven-knative-keda/)** - Knative, KEDA, serverless
 
 #### Advanced (Project 10)
 10. **[Hybrid CI/CD Platform](./projects/PROJECTS-5-10-SUMMARY.md#project-10)** - Multi-platform orchestration with Kubernetes
@@ -153,6 +160,11 @@ curl http://localhost:8080/api/books
 - OPA Gatekeeper, Falco (Security & Policy)
 - HashiCorp Vault (Secrets management)
 - Backstage (Developer portal)
+- Litmus Chaos, Chaos Mesh (Chaos engineering)
+- Flux CD, Flagger (Advanced GitOps)
+- Tekton (Cloud-native pipelines)
+- Kubecost (FinOps & cost optimization)
+- Knative, KEDA (Serverless & event-driven)
 ## 📚 Learning Path
 
 ### Beginner (Week 1-2)
@@ -185,8 +197,15 @@ curl http://localhost:8080/api/books
 19. Complete Project 18: MLOps Pipeline
 20. Complete Project 19: Zero-Trust Security
 21. Complete Project 20: Platform Engineering IDP
-22. Complete Project 10: Hybrid CI/CD Platform
-23. Add comprehensive monitoring and observability
+
+### Master (Week 13-15)
+22. Complete Project 21: Chaos Engineering
+23. Complete Project 22: Flux CD GitOps
+24. Complete Project 23: Tekton Pipelines
+25. Complete Project 24: FinOps & Cost Optimization
+26. Complete Project 25: Event-Driven Architecture
+27. Complete Project 10: Hybrid CI/CD Platform
+28. Add comprehensive monitoring and observability
 
 ---
 
